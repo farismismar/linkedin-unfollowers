@@ -37,14 +37,14 @@ followers_a = parse_followers(filename_a)
 followers_b = parse_followers(filename_b)
 
 difference = set(followers_a).symmetric_difference(set(followers_b))
-missing_followers = list(difference)
+unfollowers = list(difference)
 
-n = len(missing_followers)
+n = len(unfollowers)
 
-print(f'Number of missing followers: {n}')
+print(f'Number of unfollowers: {n}')
 
 if n > 0:    
-    print('These missing followers are: ', end='')
-    for follower in missing_followers[:-1]:
-        print(f'{follower}, ', end=',')
-    print(missing_followers[-1])
+    print('These unfollowers are: ', end='')
+    for unfollower in unfollowers[:-1]:
+        print(f'{unfollower}, ', end=',')
+    print(unfollowers[-1])
