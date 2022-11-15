@@ -9,7 +9,7 @@ Created on Sat Nov  5 20:57:19 2022
 import re
 
 print('Instructions')
-print('1) Using Google Chrome, login to your LinkedIn page and go to: https://www.linkedin.com/feed/followers/')
+print('1) Using Google Chrome, login to your LinkedIn page and go to: https://www.linkedin.com/feed/followers/ to the bottom of the page')
 print('2) Then using View | Developer | Developer Tools')
 print('3) Find the line <html lang="en" class="theme theme...')
 print('4) Right click and select Copy | Copy element')
@@ -18,7 +18,7 @@ print('6) Save the file as followers_a.html')
 print('7) Repeat instructions once more (on a different date) and call the resulting file followers_b.html')
 
 filename_a = 'linkedinfollowers-20221105.html'
-filename_b = 'linkedinfollowers-20221105.html'
+filename_b = 'linkedinfollowers-20221115.html'
 
 def parse_followers(filename):
     f = open(filename, 'r')
@@ -36,7 +36,7 @@ def parse_followers(filename):
 followers_a = parse_followers(filename_a)
 followers_b = parse_followers(filename_b)
 
-difference = set(followers_a).symmetric_difference(set(followers_b))
+difference = set(followers_a) - set(followers_b)
 unfollowers = list(difference)
 
 n = len(unfollowers)
