@@ -17,8 +17,8 @@ print('5) Open a text editor and paste to the editor')
 print('6) Save the file as followers_a.html')
 print('7) Repeat instructions once more (on a different date) and call the resulting file followers_b.html')
 
-filename_a = 'linkedinfollowers-20221105.html'
-filename_b = 'linkedinfollowers-20221115.html'
+filename_a = 'linkedinfollowers-20221115.html'
+filename_b = 'linkedinfollowers-20221116.html'
 
 def parse_followers(filename):
     f = open(filename, 'r')
@@ -39,6 +39,19 @@ followers_b = parse_followers(filename_b)
 difference = set(followers_a) - set(followers_b)
 unfollowers = list(difference)
 
+difference = set(followers_b) - set(followers_a)
+new_followers = list(difference)
+
+n = len(new_followers)
+
+print(f'Number of new followers: {n}')
+
+if n > 0:    
+    print('These new followers are: ', end='')
+    for new_follower in new_followers[:-1]:
+        print(f'{new_follower}, ', end='')
+    print(new_followers[-1])
+
 n = len(unfollowers)
 
 print(f'Number of unfollowers: {n}')
@@ -46,5 +59,5 @@ print(f'Number of unfollowers: {n}')
 if n > 0:    
     print('These unfollowers are: ', end='')
     for unfollower in unfollowers[:-1]:
-        print(f'{unfollower}, ', end=',')
+        print(f'{unfollower}, ', end='')
     print(unfollowers[-1])
